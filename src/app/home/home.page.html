@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Ionic 4 Select & Crop Image
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding text-center>
+ 
+  <ion-button (click)="selectImage()">
+    Pick Image to Crop
+  </ion-button>
+ 
+  <h5 *ngIf="croppedImagepath.length">Cropped Image</h5>
+ 
+  <p *ngIf="isLoading">Loading ...</p>
+ 
+  <img [src]="croppedImagepath" />
+ 
+</ion-content>
