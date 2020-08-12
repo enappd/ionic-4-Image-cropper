@@ -11,7 +11,8 @@ import { ActionSheetController } from '@ionic/angular';
 })
 export class HomePage {
 
-  croppedImagepath = "";
+  croppedImagePath = "";
+  defaultImage = "assets/placeholder.png";
   isLoading = false;
 
   imagePickerOptions = {
@@ -38,7 +39,6 @@ export class HomePage {
     this.camera.getPicture(options).then((imageData) => {
       // imageData is either a base64 encoded string or a file URI
       // If it's base64 (DATA_URL):
-      // let base64Image = 'data:image/jpeg;base64,' + imageData;
       this.cropImage(imageData)
     }, (err) => {
       // Handle error
@@ -89,7 +89,7 @@ export class HomePage {
     var filePath = ImagePath.split(imageName)[0];
 
     this.file.readAsDataURL(filePath, imageName).then(base64 => {
-      this.croppedImagepath = base64;
+      this.croppedImagePath = base64;
       this.isLoading = false;
     }, error => {
       alert('Error in showing image' + error);
